@@ -31,3 +31,7 @@ app.use(express.static(__dirname + "/public"));
 app.use("/", viewsRouter);
 //se le dice que use el socket Router y se le manda el servidor io
 app.use("/", socketRouter(io));
+
+io.on("connection", (socket) => {
+  console.log("Cliente conectado");
+});
